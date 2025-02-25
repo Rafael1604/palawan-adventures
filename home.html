@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IslandHavenPalawan.ph</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html" id="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+
+        <video id="header-video" autoplay muted loop preload="metadata">
+            <source src="img/4kpalawan.webm.webm.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="hero">
+            <center>
+                <h1>Palawan Adventures</h1>
+            </center>
+            <a href="#explore" id="discover">🢃 Discover More.  🢃</a>
+        </div>
+    </header>
+
+    <div class="tob-parent">
+        <div class="tob">
+            <a href="chatob.html" title="If you click this you will be able to access customer support chatob"><img src="img/ai-bot-2x2.jpg" alt="" width="50px" height="50px"></a>
+        </div>
+    </div>
+    <div class="arrow-parent">
+        <div class="arrow">
+            <a href="#active" title="If you click this you will go to the upper part of the webpage"><img src="img/arrow-up.jpg" alt="Image of a arrow up"></a>
+        </div>
+    </div>
+    
+
+    <main id="explore">
+
+        
+        <section class="destinations">
+            
+
+            
+            <div class="destination" id="puerto">
+                <a href="puerto-prinsesa.html" title="Image of Puerto Princesa "><img src="img/home-puerto-princesa.jpg" alt="Puerto Princesa"></a>
+                <h3 title="Click to see more Information about Puerto Princesa">Puerto Princesa</h3>
+            </div>
+
+            <div class="destination" id="el-nido">
+                <a href="el-nido.html" title="Image of El Nido"><img src="img/home-el-nido.jpg" alt="El Nido"></a>
+                <h3 title="Click to see more Information about El Nido">El Nido</h3>
+            </div>
+
+            <div class="destination" id="uson">
+                <a href="ugong-rock.html" id="" title="Image of Ugong Rock Adventures"><img src="img/home-ugong_rock_adventures.jpg" alt="Ugong Rock Adventures"></a>
+                <h3 title="Click to see more Information about Ugong Rock Adventures">Ugong Rock Adventures</h3>
+            </div>
+
+            <div class="destination" id="santa-isa">
+                <a href="santa-isabel.html" title="Image of Santa Isabel"><img src="img/home-fort-santa-isabel.jpg" alt="Santa Isabel"></a>
+                <h3 title="Click to see more Information about Santa Isabel">Santa Isabel</h3>
+            </div>
+        </section>
+    </main>
+
+
+    
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.destination a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                let img = this.querySelector('img');
+                img.style.transform = "scale(1.5)";
+                img.style.borderRadius = "50%";
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 500);
+            });
+        });
+
+
+        const popArrow = document.querySelector('.pop-arrow');
+        let visitCount = localStorage.getItem('visitCount') || 0;
+
+        function showPopUpArrow() {
+            popArrow.classList.add('show');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelectorAll('.destination a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                //... (rest of your link click logic)
+
+                visitCount++;
+                localStorage.setItem('visitCount', visitCount);
+                if (visitCount >= 5) {
+                    showPopUpArrow();
+                }
+            });
+        });
+
+        popArrow.addEventListener('click', scrollToTop);
+    </script>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
