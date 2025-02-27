@@ -11,14 +11,9 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-y: scroll; /* Y axix scroll */
-  -ms-overflow-style: none; /* Hide scroll in edge broswer */
-  scrollbar-width: none;
 }
 
-html::-webkit-scrollbar {
-    display: none; /* Hide it to Chrome, Safari and Opera */
-  }
+
 
 
 body {
