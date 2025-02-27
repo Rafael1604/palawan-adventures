@@ -1,0 +1,404 @@
+@font-face {
+    font-family: 'RoadFont';
+    src: url('font/roadmv.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'HeartFont'; 
+    src: url('font/heart.otf') format('truetype');
+}
+
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll; /* Y axix scroll */
+  -ms-overflow-style: none; /* Hide scroll in edge broswer */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Hide it to Chrome, Safari and Opera */
+  }
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('img/header-bg.jpg'); /* Light gray background */
+    color: #333; /* Dark gray text */
+    scroll-behavior: smooth;
+    
+}
+#top{
+    background: linear-gradient(to bottom, black 2%, rgba(0, 0, 0, 0.5) 20%, transparent 100%);
+}
+/* Navigation Styling */
+header nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    padding: 15px 20px;
+    
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    font-size: 1.3em;
+    font-weight: 600;
+    
+    
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: #c96069; /* Blue link color */
+    text-shadow: 2px 1px 3px rgb(66, 58, 58);
+    text-decoration: none;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #c96069; /* Blue underline color */
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+    
+}
+
+/*To highlight so user can know what tab currently active*/
+#active {
+    color: #ffc107; 
+    transition: ease-in-out;
+
+}
+
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Hero Section */
+
+
+header {
+    position: relative; /* Needed for absolute positioning of video */
+    width: 100%;
+    height: 100vh; /* Adjust header height as needed */
+    overflow: hidden; /* Ensure video stays within the header */
+    
+}
+
+#header-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place behind the header content */
+}
+
+/* Overlay for the header */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1; /* Place behind the header content but above the video */
+}
+
+/* Hero content */
+.hero {
+    top: 200px;
+    position: relative; /* Ensure hero content is above the overlay */
+    color: #ffffff; /* Light yellow text */
+    text-align: center;
+    z-index: 1; /* Place above the overlay */
+    text-align: center; /* Aligned hero text to the left */
+    padding-left: 40px;
+    
+
+
+}
+
+.hero h1 {
+    font-size: 3em; /* Slightly reduced heading size */
+    margin-bottom: 25px; /* Increased margin for better spacing */
+    padding-left: 20px;
+    font-family: 'RoadFont', serif;
+    text-align: center;
+    margin-left: -50px;
+    text-shadow: 2px 3px 5px black;
+    
+}.hero p {
+    font-family: 'RoadFont', sans-serif;
+    font-size: 1.6em;
+    font-weight: 900;
+    color: #000000d7; /* Slightly transparent black text */
+    margin-bottom: 20px;
+    text-align: center;
+    margin-right: 10px;
+}
+.hero a {
+    margin-top: 30px;
+    /* Green button color */
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1.1em; /* Slightly increased button font size */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 10px;
+
+    
+    
+}.hero a:hover {
+    background-color: #c96069;Slightly transparent white background on hover */
+    transform: scale(1.04);
+
+
+}
+
+
+.tob-parent {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+}
+
+.tob img {
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}.tob img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+
+main {
+    padding: 90px 20px;
+    text-align: center;
+    background-color: #f7f7f7; /* Light gray background */
+
+    /*footer*/
+    /* height: 100vh; */ /* Remove fixed height */
+    padding-bottom: 150px; /* Add spacing for footer */
+}
+
+/* Destinations Section */
+.destinations {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 30px;
+    margin-top: 10px;
+    justify-content: flex-start; /* Align to the left on larger screens */
+    padding: 0 40px;
+}.destination {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    background-color: #f0f8ff;
+    width: 45%; /* Adjust width as needed for desktop view */
+    margin-bottom: 40px;
+}
+
+
+.destination img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Added filter transition for hover effect */
+}
+
+.destination h3 {
+    padding: 15px;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark gray text */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(2, 2, 2, 0.3);
+    font-size: 1.3em;
+    margin: 0;
+    font-family: 'HeartFont', sans-serif;
+}
+
+.destination:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1); /* Added a subtle brightness increase on hover */
+
+}.destination:hover {
+    transform: translateY(-10px);
+}
+
+
+/*DELETE*/
+#puerto { top: 100px; left: 10%; }
+#el-nido { top: 400px; left: 80%; }
+#uson { top: 700px; left: 10%; }
+#santa-isa { top: 1000px; left: 80%; }
+/*DELETE*/
+
+
+/* Responsive Design */
+@media (max-width: 768px) { /*768*/
+
+.destinations {
+        flex-direction: column;
+        align-items: center;
+    }
+
+.destination {
+        width: 80%; /*80*/
+        margin-bottom: 20px;
+    }
+
+.hero h1 {
+        font-size: 2.5em;
+    }
+
+.hero p {
+        font-size: 1em;
+    }
+
+.hero button {
+        font-size: 1.1em;
+    }
+}
+
+/* Image transition effect */.destination a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}.destination img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+}.destination a:active img {
+    transform: scale(1.5);
+    border-radius: 50%;
+}
+
+
+
+
+/*FOOTER*/
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Use relative positioning */
+    bottom: 0;
+    width: 100%;
+    display: flex; /* Use flexbox for columns */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-around; /* Distribute columns evenly */
+}
+
+footer .column {
+    color: white;
+    
+    width: 30%; /* Adjust width as needed */
+    margin-bottom: 20px;
+}
+
+footer a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #64696d;
+}
+
+#facebook-icon {
+    width: 20px;
+    height: 30px;
+    fill: rgb(18, 18, 201); /*Changes the color of the icon*/
+}
+#instagram-icon {
+    width: 20px;
+    height: 30px;
+    fill: rgb(161, 22, 161);
+}
+#x-icon {
+    width: 20px;
+    height: 30px;
+    fill: rgb(255, 255, 255);
+}
+#tiktok-icon {
+    width: 20px;
+    height: 30px;
+    fill: rgb(252, 14, 133);
+}
+
+#svg{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer .column {
+        width: 100%; /* Stack columns vertically on smaller screens */
+    }
+}
+
+.arrow-parent {
+
+    z-index: 11;
+}
+
+.arrow img {
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}.arrow img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+

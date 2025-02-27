@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Nido</title>
+    <link rel="stylesheet" href="pp.css">
+    <style>
+        @font-face {
+            font-family: 'RoadFont';
+            src: url('font/roadmv.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'HeartFont';
+            src: url('font/heart.otf') format('truetype');
+        }
+
+        body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: left;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 10px 20px;
+      background: lightgray;
+      border-radius: 5px;
+    }
+
+    .tab:hover {
+      background: gray;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      max-width: 90%;
+      margin: auto;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .slideshow-container {
+      width: 100%;
+      height: 300px;
+      /* Set a fixed height */
+      overflow: hidden;
+      
+      position: relative;
+      /* To position elements inside */
+    }
+
+    .slide {
+      width: 100%;
+  height: 100%;
+  object-fit: contain; /* Change this line */
+  /* ... other styles ... */
+
+      
+      display: none;
+      
+      
+      /* Take full container height */
+      
+      position: absolute;
+      /* For smooth transitions */
+      top: 0;
+      left: 0;
+      right: 0;
+      transition: opacity 0.7s ease-in-out;
+      /* Add a transition effect */
+    }
+
+    .slide.active {
+      display: block;
+      /* Show the active slide */
+      opacity: 1;
+      /* Make it fully opaque */
+    }
+
+    .prev,
+    .next {
+      font-size: 24px;
+      position: absolute;
+      top: 70px;
+      /* Position at the top */
+      transform: translateY(-50%);
+      padding: 15px;
+      color: white;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+      /* Ensure buttons are on top */
+    }
+
+    .prev {
+      left: 0;
+      top: 50%;
+      
+    }
+
+    .next {
+      right: 0;
+      top: 50%;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+      /* Ensure dots are on top */
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: white;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.5s;
+    }
+
+    .dot.active-dot {
+      opacity: 1;
+      background-color: #f00;
+    }
+
+    .back-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .back-home:hover {
+      background: rgba(255, 0, 0, 0.7);
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="home.html">⮘ Back to Home</a>
+    </div>
+    <div class="container">
+        <h1>El Nido</h1>
+        <div class="tabs">
+            <div class="tab" onclick="showTab('overview')">Overview</div>
+            <div class="tab" onclick="showTab('images')">Images</div>
+            <div class="tab" onclick="showTab('info')">Info</div>
+        </div>
+        <div id="overview" class="tab-content active">
+            <p>El Nido is known for its beautiful beaches and stunning landscapes.  
+                El Nido is a coastal town in the Philippines on the northern tip of Palawan Island.  
+                It's a popular destination for tourists known for its white-sand beaches, turquoise waters, and limestone cliffs.  
+                El Nido is part of the Bacuit Archipelago, which includes 45 islands and islets.  
+                El Nido's limestone cliffs are similar to those in Ha Long Bay, Vietnam.</p>
+        </div>
+
+        <div id="images" class="tab-content">
+            <div class="slideshow-container">
+              <img class="slide" src="img/el-nido 1.webp" alt="Image 1">
+              <img class="slide" src="img/el-nido 2.webp" alt="Image 2">
+              <img class="slide" src="img/el-nido 3.jpeg" alt="Image 3">
+              <img class="slide" src="img/el-nido-4.jpg" alt="Image 4">
+              <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+              <button class="next" onclick="changeSlide(1)">&#10095;</button>
+              <div class="dots"></div>
+            </div>
+          </div>
+
+        <div id="info" class="tab-content">
+            <p>El Nido is located in the northern part of Palawan, Philippines.  
+                El Nido encompasses over 40 islands peppered across the Bacuit Archipelago, each with its own unique geological wonders but the same natural majesty.  
+                No wonder El Nido has earned nothing but praise from visitors and numerous accolades for being one of the best island and beach destinations in the world.  
+                El Nido has also seen a rise of numerous establishments over the years, accommodating record-high tourist arrivals in the area of about 150,000 in a year.  
+                Exploring the tourist spots in El Nido is mostly done outdoors, so weather conditions are the primary considerations in planning when to visit the town and its surrounding island</p>
+        </div>
+    </div>
+    <script>
+        function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    let slideIndex = 1;
+
+    function showSlides(n) {
+      let slides = document.querySelectorAll(".slide");
+      let dots = document.querySelectorAll(".dot");
+
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+
+      slides.forEach(slide => {
+        slide.style.display = "none";
+        slide.classList.remove('active'); // Remove active class for smooth transition
+      });
+      dots.forEach(dot => dot.classList.remove("active-dot"));
+
+      slides[slideIndex - 1].style.display = "block";
+      slides[slideIndex - 1].classList.add('active'); // Add active class for smooth transition
+      dots[slideIndex - 1].classList.add("active-dot");
+    }
+
+    function changeSlide(n) {
+      showSlides(slideIndex += n);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      let dotsContainer = document.querySelector(".dots");
+      let slides = document.querySelectorAll(".slide");
+
+      slides.forEach((_, index) => {
+        let dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.onclick = () => {
+          slideIndex = index + 1;
+          showSlides(slideIndex);
+        };
+        dotsContainer.appendChild(dot);
+      });
+
+      showSlides(slideIndex);
+    });
+    </script>
+</body>
+</html>
