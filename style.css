@@ -324,7 +324,7 @@ footer {
     text-align: center;
     position: relative; /* Use relative positioning */
     bottom: 0;
-    width: 100%;
+    width: auto;
     display: flex; /* Use flexbox for columns */
     flex-wrap: wrap; /* Allow wrapping for smaller screens */
     justify-content: space-around; /* Distribute columns evenly */
